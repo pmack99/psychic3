@@ -45,13 +45,13 @@
 
         if (userGuess === psychicGuess)
             wins++;
-
-        else if (userGuess !== psychicGuess)
+        else if (userGuess != psychicGuess)
             lives--;
-
-        if (lives === 0)
+        
+        if (lives === 0){
             losses--
             resetGame();
+}
 
 
         // Update text content of the html elements for user guess 
