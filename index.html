@@ -24,13 +24,12 @@
         var psychicGuess = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
             console.log(psychicGuess);
 
-
         // Create function that will be used to handle the key press.
         // Capture the key that the user pressed.
         function keyPress(event) {
             var userGuess = event.key;
         
-        
+
         // Get reference to html elements for wins, losses, and lives and user-guess.
         var winsScoreElement = document.getElementById('wins-score');
         var lossesScoreElement = document.getElementById('losses-score');
@@ -38,9 +37,9 @@
         var userGuessElement = document.getElementById('user-guess');
 
 
-        if (userGuess === computerGuess)
+        if (userGuess === psychicGuess)
             wins++;
-        else if (userGuess != computerGuess)
+        else if (userGuess != psychicGuess)
             losses++;
             lives--;
 
