@@ -31,15 +31,11 @@
             var userGuess = event.key;
         }
         
-
         // Get reference to html elements for wins, losses, and lives and user-guess.
         var winsScoreElement = document.getElementById('wins-score');
         var lossesScoreElement = document.getElementById('losses-score');
         var tiesScoreElement = document.getElementById('lives-score');
         var userGuessElement = document.getElementById('user-guess');
-
-        // Update text content of the html elements for user guess 
-        userGuessElement.textContent = userGuess;
 
 
         if (userGuess === computerGuess)
@@ -47,7 +43,12 @@
         else if (userGuess != computerGuess)
             losses++;
             lives--;
-  
+
+        // Update text content of the html elements for user guess 
+        userGuessElement.textContent = userGuess;
+
+        // Update text content of the html elements for user guess 
+        userGuessElement.textContent = userGuess;
 
         // Update all of the scores.
         winsScoreElement.textContent = wins;
@@ -65,47 +66,34 @@
 
 <div class="wrapper">
     <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <h1 class="display-4">PMack's Psychic Number Guessing game</h1>
-                <p class="game-instructions">Type a letter. You have 9 lives... </p>
+         <div class="container">
+                 <h1 class="display-4">PMack's Psychic Guessing game</h1>
+                 <p class="game-instructions">Type a letter. You have 9 lives... </p>
+            <hr>
+                 <div class="guesses-card">
+                      <p class="guess">
+                      Your Guess<br>
+                    <span id="user-guess"></span>
+                        </p>
+                 </div>
+            <hr>
+                <div class="scores-card">
+                   <p class="score box-shadow">
+                   Wins<br>
+                  <span id="wins-score">0</span>
+                  </p>
 
-                <hr>
-
-
-        <div class="guesses-card">
-            <p class="guess">
-                 Your Guess<br>
-                <span id="user-guess"></span>
+                  <p class="score box-shadow">
+                   Losses<br>
+                  <span id="losses-score">0</span>
                  </p>
 
-            </div>
-
-            <hr>
-
-        <div class="scores-card">
-             <p class="score box-shadow">
-                Wins<br>
-                <span id="wins-score">0</span>
-                </p>
-
-                <p class="score box-shadow">
-                 Losses<br>
-                <span id="losses-score">0</span>
-            </p>
-
-             <p class="score box-shadow">
-                lives<br>
-                <span id="lives-score">9</span>
-                </p>
-      </div>
+                  <p class="score box-shadow">
+                    lives<br>
+                  <span id="lives-score">9</span>
+                     </p>
+        </div>
     </div>
-
-
-
-
-            </div>
-    </div>
-
 </div>
 
 
