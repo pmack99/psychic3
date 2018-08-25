@@ -26,6 +26,7 @@
             console.log(psychicGuess);
 
 
+
         // Create function that will be used to handle the key press.
         // Capture the key that the user pressed.
         function keyPress(event) {
@@ -38,15 +39,24 @@
         var userGuessElement = document.getElementById('user-guess');
         var letterGuessed = document.getElementById("guessed");
 
+        function resetGame() {
+            lives = 9;
+        }
 
         if (userGuess === psychicGuess)
             wins++;
+
         else if (userGuess !== psychicGuess)
-            lives-- && losses++;
+            lives--;
+
+        if (lives === 0)
+            losses--
+            resetGame();
+
 
         // Update text content of the html elements for user guess 
         userGuessElement.textContent = userGuess;
-
+        letterGuessed.textContent = userGuess;
         // Update all of the scores.
         winsScoreElement.textContent = wins;
         lossesScoreElement.textContent = losses;
@@ -55,6 +65,8 @@
 
         // Use onkeyup event to run the function we created earlier each time a key is pressed.
         document.onkeyup = keyPress;
+
+
 
     </script>
 
@@ -69,9 +81,13 @@
             <hr>
                  <div class="guesses-card">
                       <p class="guess">
-                      Your Guess<br>
+                      Your Guess:<br>
                     <span id="user-guess"></span>
                         </p>
+                     <p class="wrongGuess"> 
+                        Previous Guesses:<br>
+                    <span id="guessed"></span>
+                              </p>
                  </div>
             <hr>
                 <div class="scores-card">
