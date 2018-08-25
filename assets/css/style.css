@@ -1,0 +1,17 @@
+container{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    justify-content: center;
+}
+h1, h3{
+    text-align: center;
+}
+
+#inputs{
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+
+}
