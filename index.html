@@ -29,7 +29,7 @@
         // Capture the key that the user pressed.
         function keyPress(event) {
             var userGuess = event.key;
-        }
+        
         
         // Get reference to html elements for wins, losses, and lives and user-guess.
         var winsScoreElement = document.getElementById('wins-score');
@@ -54,7 +54,7 @@
         winsScoreElement.textContent = wins;
         lossesScoreElement.textContent = losses;
         tiesScoreElement.textContent = ties;
-
+}
 
         // Use onkeyup event to run the function we created earlier each time a key is pressed.
         document.onkeyup = keyPress;
