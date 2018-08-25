@@ -41,17 +41,30 @@
 
         function resetGame() {
             lives = 9;
+            var psychicGuess = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
+            console.log(psychicGuess);
+        }
+
+        function resetGameWin(){
+            var psychicGuess = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
+            console.log(psychicGuess);
         }
 
         if (userGuess === psychicGuess)
             wins++;
+
         else if (userGuess != psychicGuess)
             lives--;
+
+        if (userGuess === psychicGuess)
+        resetGameWin();
         
-        if (lives === 0){
-            losses--
+        if (lives === 0)
+            losses++;
+        
+        if (lives === 0)
             resetGame();
-}
+
 
 
         // Update text content of the html elements for user guess 
