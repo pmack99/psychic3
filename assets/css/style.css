@@ -13,3 +13,8 @@ p, h1, h3{
     text-align: center;
     padding: 0px;
 }
+
+.col-3{
+    border: 1px solid red;
+    padding: 5px;
+}
