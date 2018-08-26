@@ -29,19 +29,18 @@
         // Use onkeyup event to run the function we created earlier each time a key is pressed.
         document.onkeyup = keyPress;
 
-        function resetGame(){
-            var psychicGuess = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
-            var wins = 0;
-            var losses = 0;
-            var lives = 9;
-        }
+
 
         // Create function that will be used to handle the key press.
         // Capture the key that the user pressed.
         function keyPress(event) {
             var userGuess = event.key;
 
-
+        function resetGame(){
+            var psychicGuess = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
+            var lives = 9;
+        }
+        
         //function resetGameWin(){
             //var psychicGuess = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
             //var guessChoices = [];
@@ -60,6 +59,7 @@
             wins++;
             guessChoices = [];
             resetGame();
+            alert("You have chosen... wisely. You will have a great future, I can see it already");
         }
                 
         if (userGuess != psychicGuess) {
@@ -105,22 +105,29 @@
         livesScoreElement.textContent = lives;
 
 
-        }
+}
 
 
     </script>
 
 <body>
 
+
 <div class="wrapper">
+
 
     <div class="jumbotron jumbotron-fluid">
             <div class="container">
+
                  <h1 class="display-5">PMack's Psychic Guessing game</h1>
                  <hr>
                  <h3 class="game-instructions">Type a letter. You have 9 lives... </h3>
+
+                <div id="bg"> <img src="assets/images/nostrasamus.png" alt=""> </div>
             </div>
     </div>
+
+
     <div class="container">
          <div class="row justify-content-center">
                       <div class="col-3">
