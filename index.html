@@ -19,66 +19,73 @@
         var losses = 0;
         var lives = 9;
         var psychicChoices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o','p', 'q', 'r', 's', 't', 'w', 'x', 'y', 'z'];
-
+        var guessChoices = [];
 
         // Generate random choice for the computer guess from the ChoicesArray.
         var psychicGuess = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
             console.log(psychicGuess);
 
-
+        // Use onkeyup event to run the function we created earlier each time a key is pressed.
+        document.onkeyup = keyPress;
 
         // Create function that will be used to handle the key press.
         // Capture the key that the user pressed.
         function keyPress(event) {
             var userGuess = event.key;
-        
+
+        function resetGame(){
+            lives = 9;
+            var psychicGuess = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
+        }
+
+        function resetGameWin(){
+            lives = 9;
+            var psychicGuess = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
+            
+        }
+
         // Get reference to html elements for wins, losses, and lives and user-guess.
         var winsScoreElement = document.getElementById('wins-score');
         var lossesScoreElement = document.getElementById('losses-score');
         var livesScoreElement = document.getElementById('lives-score');
         var userGuessElement = document.getElementById('user-guess');
-        var letterGuessed = document.getElementById("guessed");
+        var guessElement= document.getElementById("guessed");
+        
 
-        function resetGame() {
-            lives = 9;
-            var psychicGuess = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
-            console.log(psychicGuess);
-        }
-
-        function resetGameWin(){
-            var psychicGuess = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
-            console.log(psychicGuess);
-        }
 
         if (userGuess === psychicGuess)
             wins++;
 
-        else if (userGuess != psychicGuess)
+        if (userGuess === psychicGuess)
+            resetGameWin();
+            
+
+        if (userGuess != psychicGuess)
             lives--;
 
-        if (userGuess === psychicGuess)
-        resetGameWin();
-        
+        if (userGuess != psychicGuess)
+            guessChoices.push(userGuess);
+            console.log(guessChoices);
+
         if (lives === 0)
             losses++;
-        
+            
         if (lives === 0)
             resetGame();
-
+        
 
 
         // Update text content of the html elements for user guess 
         userGuessElement.textContent = userGuess;
-        letterGuessed.textContent = userGuess;
+        guessElement.textContent = guessChoices;
+
         // Update all of the scores.
         winsScoreElement.textContent = wins;
         lossesScoreElement.textContent = losses;
         livesScoreElement.textContent = lives;
-}
 
-        // Use onkeyup event to run the function we created earlier each time a key is pressed.
-        document.onkeyup = keyPress;
 
+        }
 
 
     </script>
@@ -100,7 +107,7 @@
                      <p class="wrongGuess"> 
                         Previous Guesses:<br>
                     <span id="guessed"></span>
-                              </p>
+                        </p>
                  </div>
             <hr>
                 <div class="scores-card">
