@@ -36,6 +36,13 @@
         function keyPress(event) {
             var userGuess = event.key;
 
+        function resetGame(){
+            var psychicGuess 
+            var psychicGuess = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
+            console.log(psychicGuess);
+            guessChoices = [];
+            lives = 9;
+            }
 
         //function resetGameWin(){
             //var psychicGuess = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
@@ -52,16 +59,14 @@
 
 
         if (userGuess === psychicGuess) {
-            wins++;
-            guessChoices = [];
             resetGame();
+            wins++;
             alert("You have chosen... wisely. You will have a great future, I can see it already");
         }
                 
         if (userGuess != psychicGuess) {
             lives--;
             guessChoices.push(userGuess);
-            console.log(guessChoices);
         }
               
         if (lives === 0) {
