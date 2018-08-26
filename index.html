@@ -29,18 +29,17 @@
         // Use onkeyup event to run the function we created earlier each time a key is pressed.
         document.onkeyup = keyPress;
 
-
+        function resetGame(){
+            var psychicGuess = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
+            var lives = 9;
+        }
 
         // Create function that will be used to handle the key press.
         // Capture the key that the user pressed.
         function keyPress(event) {
             var userGuess = event.key;
 
-        function resetGame(){
-            var psychicGuess = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
-            var lives = 9;
-        }
-        
+
         //function resetGameWin(){
             //var psychicGuess = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
             //var guessChoices = [];
