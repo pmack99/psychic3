@@ -5,13 +5,11 @@ container{
     text-align: left;
     justify-content: center;
 }
-h1, h3{
+p, h1, h3{
     text-align: center;
 }
 
-#inputs{
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
-
+.card-header{
+    text-align: center;
+    padding: 0px;
 }
