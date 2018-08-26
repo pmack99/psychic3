@@ -9,6 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="assets/css/reset.css">       
         <link rel="stylesheet" href="assets/css/style.css">
         <script language="javascript"></script>
     </head>
@@ -28,16 +29,15 @@
         // Use onkeyup event to run the function we created earlier each time a key is pressed.
         document.onkeyup = keyPress;
 
+        function resetGame(){
+            var psychicGuess = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
+        }
+
         // Create function that will be used to handle the key press.
         // Capture the key that the user pressed.
         function keyPress(event) {
             var userGuess = event.key;
 
-        //function resetGame(){
-            //lives = 9;
-            //var psychicGuess = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
-            
-        //}
 
         //function resetGameWin(){
             //var psychicGuess = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
@@ -56,6 +56,7 @@
         if (userGuess === psychicGuess) {
             wins++;
             guessChoices = [];
+            resetGame();
         }
                 
         if (userGuess != psychicGuess) {
@@ -68,6 +69,7 @@
             losses++;
             guessChoices = [];
             lives = 9;
+            alert("You are not Nostradamus. You are a loser. Leave");
         }
         
         //if (userGuess === psychicGuess)
@@ -110,24 +112,24 @@
 
 <div class="wrapper">
     <div class="jumbotron jumbotron-fluid">
-         <div class="container">
-                 <h1 class="display-4">PMack's Psychic Guessing game</h1>
-
+            <div class="container">
+                 <h1 class="display-5">PMack's Psychic Guessing game</h1>
+            <hr>
                  <h3 class="game-instructions">Type a letter. You have 9 lives... </h3>
             <hr>
 
 
+
     <div class="container">
          <div class="row">
-                      <div class="col-3">
-                        <p class="guess">  Your Guess:<br> <span id="user-guess"></span> </p>
-                
+                      <div class="col-4">
+                        <p class="guess">  Your Guess:<br> <hr> <span id="user-guess"></span> </p>
                       </div>
 
-                      <div class="col-6">
+                      <div class="col-3">
                             <div class="card" ></div>
                                     <div class="card-header">
-                                           <p> Scorecard</p>
+                                           <p> <strong>Scorecard</strong> </p>
                                     <hr>
                                     
                                         <p class="score">
@@ -136,21 +138,21 @@
                                             <p>Losses: <span id="losses-score"> 0</span><p>
                                     <hr>
                                             <p>Lives: <span id="lives-score"> 9</span><p> </p>
-                                    <hr>
-                                    
+                                    <hr> 
                                   </div>
                       </div>
 
-                      <div class="col-3">
-                            <p class="wrongGuess"> Previous Guesses:<br> <span id="guessed"></span>  </p>
+                      <div class="col-4">
+                            <p class="wrongGuess"> Previous Guesses:<br> <hr> <span id="guessed"></span>  </p>
                       </div>
 
 
         </div>
     </div>
+    
 
     </div>
-</div>
+</div>>
 
 
 
