@@ -31,6 +31,9 @@
 
         function resetGame(){
             var psychicGuess = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
+            var wins = 0;
+            var losses = 0;
+            var lives = 9;
         }
 
         // Create function that will be used to handle the key press.
@@ -107,26 +110,24 @@
 
     </script>
 
-
 <body>
 
 <div class="wrapper">
+
     <div class="jumbotron jumbotron-fluid">
             <div class="container">
                  <h1 class="display-5">PMack's Psychic Guessing game</h1>
-            <hr>
+                 <hr>
                  <h3 class="game-instructions">Type a letter. You have 9 lives... </h3>
-            <hr>
-
-
-
+            </div>
+    </div>
     <div class="container">
-         <div class="row">
-                      <div class="col-4">
+         <div class="row justify-content-center">
+                      <div class="col-3">
                         <p class="guess">  Your Guess:<br> <hr> <span id="user-guess"></span> </p>
                       </div>
 
-                      <div class="col-3">
+                      <div class="col-2">
                             <div class="card" ></div>
                                     <div class="card-header">
                                            <p> <strong>Scorecard</strong> </p>
@@ -142,7 +143,7 @@
                                   </div>
                       </div>
 
-                      <div class="col-4">
+                      <div class="col-3">
                             <p class="wrongGuess"> Previous Guesses:<br> <hr> <span id="guessed"></span>  </p>
                       </div>
 
