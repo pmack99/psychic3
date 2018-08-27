@@ -30,19 +30,26 @@
         document.onkeyup = keyPress;
 
 
+        function resetGame() {
+        psychicGuess = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
+        console.log(psychicGuess);
+        guessChoices = [];
+        lives = 9;
+        }
 
         // Create function that will be used to handle the key press.
         // Capture the key that the user pressed.
         function keyPress(event) {
             var userGuess = event.key;
 
-        function resetGame(){
-            var psychicGuess 
-            var psychicGuess = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
-            console.log(psychicGuess);
-            guessChoices = [];
-            lives = 9;
-            }
+        //function resetGame(){
+            //var psychicGuess 
+            //var psychicGuess = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
+            //console.log(psychicGuess);
+            //guessChoices = [];
+            //lives = 9;
+            //}
+
 
         //function resetGameWin(){
             //var psychicGuess = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
