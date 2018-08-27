@@ -19,12 +19,18 @@
         var wins = 0;
         var losses = 0;
         var lives = 9;
+        var psychicGuess;
         var psychicChoices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o','p', 'q', 'r', 's', 't', 'w', 'x', 'y', 'z'];
         var guessChoices = [];
 
         // Generate random choice for the computer guess from the ChoicesArray.
-        var psychicGuess = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
+        var updateLetterToGuess = function() {
+         psychicGuess = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
             console.log(psychicGuess);
+        };
+
+        // Execute on page load.
+        updateLetterToGuess();
 
         // Use onkeyup event to run the function we created earlier each time a key is pressed.
         document.onkeyup = keyPress;
@@ -35,6 +41,7 @@
         console.log(psychicGuess);
         guessChoices = [];
         lives = 9;
+        updateLetterToGuess();
         }
 
         // Create function that will be used to handle the key press.
