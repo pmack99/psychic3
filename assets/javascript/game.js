@@ -5,6 +5,14 @@ var psychicGuess;
 var psychicChoices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o','p', 'q', 'r', 's', 't', 'w', 'x', 'y', 'z'];
 var guessChoices = [];
 
+var sounds = [
+    "assets/audio/doh.wav",
+    "assets/audio/haha.wav",
+    "assets/audio/no.mp3",
+    "assets/audio/noDear.mp3",
+    "assets/audio/agh.mp3"
+  ];
+
 // Generate random choice for the computer guess from the ChoicesArray.
 var updateLetterToGuess = function() {
  psychicGuess = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
@@ -22,7 +30,7 @@ function resetGame() {
 psychicGuess = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
 console.log(psychicGuess);
 guessChoices = [];
-lives = 9;
+lives = 10;
 updateLetterToGuess();
 }
 
@@ -51,6 +59,8 @@ if (userGuess === psychicGuess) {
 if (userGuess != psychicGuess) {
     lives--;
     guessChoices.push(userGuess);
+    var sound = document.getElementById("audio_three");
+    sound.play();
 }
       
 if (lives === 0) {
