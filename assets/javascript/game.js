@@ -47,8 +47,6 @@ if (userGuess == psychicGuess) {
 if (userGuess != psychicGuess) {
     lives--;
     guessChoices.push(userGuess);
-    var sound = document.getElementById("audio_three");
-    sound.play();
 }
       
 if (lives === 0) {
