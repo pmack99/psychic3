@@ -17,7 +17,6 @@ var sounds = [
 var updateLetterToGuess = function() {
  psychicGuess = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
     console.log(psychicGuess);
-    guessChoices = [];
 };
 
 // Execute on page load.
@@ -27,21 +26,37 @@ updateLetterToGuess();
 document.onkeyup = keyPress;
 
 
+function resetGame() {
+psychicGuess = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
+console.log(psychicGuess);
+guessChoices = [];
+lives = 10;
+updateLetterToGuess();
+}
 
 
 function keyPress(event) {
     var userGuess = event.key;
 
+// Get reference to html elements for wins, losses, and lives and user-guess.
+var winsScoreElement = document.getElementById('wins-score');
+var lossesScoreElement = document.getElementById('losses-score');
+var livesScoreElement = document.getElementById('lives-score');
+var userGuessElement = document.getElementById('user-guess');
+var guessElement= document.getElementById("guessed");
+
+
 
 if (userGuess == psychicGuess) {
     wins++;
     guessChoices = [];
-    lives = 10;
+    lives = 9;
+    updateLetterToGuess();
     var sound = document.getElementById("audio");
     sound.play();
+    resetGame();
     alert("You have chosen... wisely. You will have a great future, I have seen it already");
-    userGuess = [];
-    updateLetterToGuess();
+
 }
         
 if (userGuess != psychicGuess) {
@@ -59,13 +74,6 @@ if (lives === 0) {
     sound.play();
     alert("You are not Nostradamus. You are a loser. Leave");
 }
-
-// Get reference to html elements for wins, losses, and lives and user-guess.
-var winsScoreElement = document.getElementById('wins-score');
-var lossesScoreElement = document.getElementById('losses-score');
-var livesScoreElement = document.getElementById('lives-score');
-var userGuessElement = document.getElementById('user-guess');
-var guessElement= document.getElementById("guessed");
 
 userGuessElement.textContent = userGuess;
 guessElement.textContent = guessChoices;
