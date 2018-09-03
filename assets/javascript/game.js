@@ -32,6 +32,10 @@ document.onkeyup = keyPress;
 function keyPress(event) {
     var userGuess = event.key;
 
+if (guessChoices.indexOf(userGuess) > -1){
+        alert("You guessed that already");
+        return false;
+    }
 
 if (userGuess == psychicGuess) {
     wins++;
