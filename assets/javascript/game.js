@@ -28,9 +28,13 @@ document.onkeyup = keyPress;
 
 
 
-
 function keyPress(event) {
     var userGuess = event.key;
+
+if (psychicChoices.indexOf(userGuess) < 0){
+        alert("You need to press a letter key between a - z");
+        return false;
+    }
 
 if (guessChoices.indexOf(userGuess) > -1){
         alert("You guessed that already");
