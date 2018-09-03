@@ -2,7 +2,7 @@ var wins = 0;
 var losses = 0;
 var lives = 9;
 var psychicGuess;
-var psychicChoices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o','p', 'q', 'r', 's', 't', 'w', 'x', 'y', 'z'];
+var psychicChoices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o','p', 'q', 'r', 's', 't', 'u','v','w', 'x', 'y', 'z'];
 var guessChoices = [];
 
 var sounds = [
@@ -17,7 +17,7 @@ var sounds = [
 var updateLetterToGuess = function() {
  psychicGuess = psychicChoices[Math.floor(Math.random() * psychicChoices.length)];
     console.log(psychicGuess);
-    guessChoices = [];
+
 };
 
 // Execute on page load.
@@ -26,7 +26,12 @@ updateLetterToGuess();
 // Use onkeyup event to run the function we created earlier each time a key is pressed.
 document.onkeyup = keyPress;
 
-
+function resetGame(){
+    userGuess = [];
+    guessChoices = [];
+    lives = 10;
+    updateLetterToGuess();
+}
 
 function keyPress(event) {
     var userGuess = event.key;
@@ -41,15 +46,17 @@ if (guessChoices.indexOf(userGuess) > -1){
         return false;
     }
 
-if (userGuess == psychicGuess) {
+if (userGuess === psychicGuess) {
     wins++;
     guessChoices = [];
-    lives = 10;
+    userGuess = [];
+    resetGame();
+    //guessChoices = [];
+    //lives = 10;
+    //userGuess = [];
     var sound = document.getElementById("audio");
     sound.play();
     alert("You have chosen... wisely. You will have a great future, I have seen it already");
-    userGuess = [];
-    updateLetterToGuess();
 }
         
 if (userGuess != psychicGuess) {
@@ -59,8 +66,9 @@ if (userGuess != psychicGuess) {
       
 if (lives === 0) {
     losses++;
-    guessChoices = [];
-    lives = 9;
+    resetGame();
+    //guessChoices = [];
+    //lives = 9;
     var sound = document.getElementById("audio_two");
     sound.play();
     alert("You are not Nostradamus. You are a loser. Leave");
